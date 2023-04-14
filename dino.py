@@ -199,16 +199,17 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             exit()
+            
         if event.type == KEYDOWN:
             if event.key == K_SPACE and colidiu == False:
                 if dino.rect.y != dino.pos_y_inicial:
                     pass
                 else:
                     dino.pular()
-
+                    
             if event.key == K_r and colidiu == True:
                 reiniciar_jogo()
-
+                
     colisoes = pygame.sprite.spritecollide(dino, grupo_obstaculos, False, pygame.sprite.collide_mask)
 
     todas_as_sprites.draw(tela)
@@ -231,7 +232,7 @@ while True:
         tela.blit(game_over, (LARGURA//2, ALTURA//2))
         restart = exibe_mensagem('Pressione r para reiniciar', 20, (0,0,0))
         tela.blit(restart, (LARGURA//2, (ALTURA//2) + 60))
-
+        
     else:
         pontos += 1
         todas_as_sprites.update()
@@ -247,3 +248,5 @@ while True:
     tela.blit(texto_pontos, (520, 30))
 
     pygame.display.flip()
+
+    
